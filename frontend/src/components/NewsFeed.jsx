@@ -119,7 +119,7 @@ export default function NewsFeed({ markets = [], onSelectCity }) {
                   fontSize: '9px',
                   textTransform: 'uppercase',
                   letterSpacing: '0.1em',
-                  color: '#C9C4BA',
+                  color: '#2B2A27',
                   background: '#F4F1EB',
                   padding: '2px 6px',
                   borderRadius: '2px',
