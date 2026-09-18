@@ -14,8 +14,11 @@ from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
 logger = logging.getLogger(__name__)
 
-# Database file lives alongside this module
-DB_DIR = Path(__file__).resolve().parent
+# Database file lives in a data/ subdirectory so it lands inside the
+# Docker named volume (mounted at /app/data in docker-compose.yml).
+# Locally (outside Docker) this just creates backend/data/ on first run.
+DB_DIR = Path(__file__).resolve().parent / "data"
+DB_DIR.mkdir(parents=True, exist_ok=True)
 DB_PATH = DB_DIR / "market_watch.db"
 DATABASE_URL = f"sqlite:///{DB_PATH}"
 
