@@ -1,7 +1,18 @@
-# Market Watch
+﻿# Market Watch
 
 An AI-powered real estate market intelligence dashboard.  
 Monitors 12 cities across Ohio, New York, Ontario, and Alberta using live public data, then uses AI to explain — in plain English — whether each market is heating up or cooling down, and why.
+
+---
+
+## Tech Stack
+
+| Layer | Technologies |
+|-------|-------------|
+| **Frontend** | React, Vite, Modern CSS3, Fetch/Axios API client, React Hooks (`useState`, `useEffect`) |
+| **Backend** | Python 3, FastAPI, Uvicorn (ASGI), RESTful API endpoints with async request handling |
+| **Data Ingestion** | Public macroeconomic & financial REST APIs (FRED, Statistics Canada, CMHC, Bank of Canada, NewsAPI, Gemini AI), JSON serialization & parsing |
+| **Version Control** | Git, GitHub |
 
 ---
 
@@ -15,12 +26,12 @@ Install these two things if you don't have them already:
 2. **Node.js 18 or newer** → [Download here](https://nodejs.org/)  
    Pick the version marked **"LTS"** (the big green button).
 
-To check if they're already installed, open a terminal and run:
+To check if they are already installed, open a terminal and run:
 ```
 python --version
 node --version
 ```
-If both show version numbers, you're good.
+If both show version numbers, you are good.
 
 > **How to open a terminal:**  
 > - **Windows:** Press `Win + R`, type `cmd`, press Enter.  
@@ -30,7 +41,7 @@ If both show version numbers, you're good.
 
 ## Step 1 — Get Your API Keys (free)
 
-You need 3 API keys. All are free. Here's exactly how to get each one:
+You need 3 API keys. All are free. Here is exactly how to get each one:
 
 ### FRED Key (US housing data)
 1. Go to [https://fred.stlouisfed.org/docs/api/api_key.html](https://fred.stlouisfed.org/docs/api/api_key.html)
@@ -86,8 +97,8 @@ INFO:     Uvicorn running on http://127.0.0.1:8000
 
 **Leave this terminal open.** The backend is now running.
 
-> If `pip` doesn't work, try `pip3` instead.  
-> If `uvicorn` doesn't work, try `python -m uvicorn main:app --reload`.
+> If `pip` does not work, try `pip3` instead.  
+> If `uvicorn` does not work, try `python -m uvicorn main:app --reload`.
 
 ---
 
@@ -114,17 +125,17 @@ Open your web browser and go to:
 
 **[http://localhost:5173](http://localhost:5173)**
 
-That's it. The dashboard will load. On first launch, it takes 30–60 seconds to fetch data for all 12 cities in the background.
+That is it. The dashboard will load. On first launch, it takes 30–60 seconds to fetch data for all 12 cities in the background.
 
 ---
 
-## What You're Looking At
+## What You Are Looking At
 
 - **4 region tabs** at the top — click to switch between Ohio, New York, Ontario, Alberta
 - **City cards** show the AI signal: HEATING (market getting hotter), COOLING (slowing down), or STABLE
 - **Click any city card** to open a detail view with:
   - Full market stats (price, inventory, days on market, interest rates)
-  - The AI's reasoning trace — step-by-step explanation of how it reached its conclusion
+  - The AI reasoning trace — step-by-step explanation of how it reached its conclusion
   - A **What-If Simulation Sandbox** where you can type a custom headline (like *"Tesla announces new factory in Columbus"*) and see how the AI reinterprets the market
 - **Right sidebar** shows the latest notable news events across all markets
 
@@ -143,7 +154,7 @@ All data is fetched live from public APIs. Nothing is fake.
 | **NewsAPI** | Real estate and economic news headlines | All cities |
 | **Gemini AI** | Interprets all of the above into plain-English market signals | All cities |
 
-> **Note on Canadian data:** Statistics Canada and CMHC public endpoints are rate-limited. If they're unavailable at fetch time, the system uses cached baseline figures so the dashboard never breaks. The README in `backend/ingest/` has full details.
+> **Note on Canadian data:** Statistics Canada and CMHC public endpoints are rate-limited. If they are unavailable at fetch time, the system uses cached baseline figures so the dashboard never breaks.
 
 > **Note on MLS/CREA:** Direct MLS feeds and CREA data require licensed broker credentials and are not publicly available APIs. Market Watch uses publicly accessible government data sources (FRED, StatCan, CMHC) as documented alternatives.
 
@@ -167,3 +178,11 @@ All data is fetched live from public APIs. Nothing is fake.
 
 - Press `Ctrl + C` in each terminal to stop the backend and frontend.
 - Nothing is permanently running. Next time you want to use it, just repeat Steps 3–5.
+
+---
+
+## Upcoming Architectural Enhancements
+
+- **SQL persistence layer** — PostgreSQL/SQLite with indexing for historical time-series caching
+- **Containerization** — Docker and Docker Compose for local service orchestration
+- **Automated testing** — pytest unit tests for API endpoint validation
