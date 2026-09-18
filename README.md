@@ -1,4 +1,4 @@
-﻿# Market Watch
+# Market Watch
 
 An AI-powered real estate market intelligence dashboard.  
 Monitors 12 cities across Ohio, New York, Ontario, and Alberta using live public data, then uses AI to explain — in plain English — whether each market is heating up or cooling down, and why.
@@ -178,6 +178,27 @@ All data is fetched live from public APIs. Nothing is fake.
 
 - Press `Ctrl + C` in each terminal to stop the backend and frontend.
 - Nothing is permanently running. Next time you want to use it, just repeat Steps 3–5.
+
+---
+
+## Run with Docker
+
+If you have [Docker](https://docs.docker.com/get-docker/) and Docker Compose installed, you can spin up the entire stack with a single command — no Python or Node setup required.
+
+1. Make sure `backend/.env` exists and contains your API keys (same as Step 2 above).
+2. From the repo root, run:
+
+```bash
+docker compose up --build
+```
+
+| Service | URL |
+|---------|-----|
+| Dashboard (frontend) | http://localhost:3000 |
+| API (backend) | http://localhost:8000 |
+
+SQLite data is stored in a named Docker volume (`sqlite_data`) and survives container restarts.  
+To stop everything: `Ctrl + C`, then `docker compose down`.
 
 ---
 
